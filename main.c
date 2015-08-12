@@ -1,6 +1,5 @@
 // Watering program for plants
-// 10 sec from start before first watering
-// Then watering every 12 hours
+// Watering every 24 hours
 
 #include <msp430f2001.h>
 
@@ -20,14 +19,10 @@ int main(void) {
         P1OUT |= 0x03; 
         deepSleep(1); // water 10 sec
 
-        P1OUT &= ~0x03; // pause watering for 30 sec
-        deepSleep(6); 
+        P1OUT &= ~0x03; 
 
-        P1OUT |= 0x03; // watering 10 sec
-        deepSleep(1); 
-        P1OUT &= ~0x03; // off watering
-       
-        deepSleep(4320); // wait approx 12 hrs
+        deepSleep(8640); // wait approx 24 hrs
+        deepSleep(8640); // wait approx 24 hrs
     }
 }
 
